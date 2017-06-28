@@ -10,6 +10,7 @@ function IndexPage() {
       <Link href="/about">
         <a>About</a>
       </Link>
+      &nbsp; &nbsp;
       <Link href="/profile">
         <a>Sign-In</a>
       </Link>
