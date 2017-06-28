@@ -5,8 +5,10 @@ import {initStore} from '../store';
 import PropTypes from 'prop-types';
 
 class myProfile extends Component {
+  PROFILE_ID = this.props.url.query._id;
   componentDidMount() {
-    this.props.getProfile();
+    console.log('from myProfilejs, 10', this.PROFILE_ID);
+    this.props.getProfile(this.PROFILE_ID);
   }
 
   render() {
@@ -21,6 +23,7 @@ class myProfile extends Component {
 
 myProfile.propTypes = {
   getProfile: PropTypes.func.isRequired,
+  url: PropTypes.object.isRequired,
 
 };
 
@@ -28,8 +31,8 @@ myProfile.propTypes = {
 /* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
   return {
-    getProfile: () => {
-      console.log('myProfile is loading, 21');
+    getProfile: id => {
+      console.log('myProfile is loading, 21', id);
     }
   };
 }

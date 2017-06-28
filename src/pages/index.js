@@ -11,7 +11,7 @@ function IndexPage() {
         <a>About</a>
       </Link>
       &nbsp; &nbsp;
-      <Link href="/profile">
+      <Link href={{pathname: '/profile', query: {_id: '59526f7b403e1551a0c6f73c'} }}>
         <a>Sign-In</a>
       </Link>
     </div>
