@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 // import LessonRouter from './routers/LessonRouter';
 // import SubjectRouter from './routers/SubjectRouter';
-// import TeacherProfileRouter from './routers/TeacherProfileRouter';
+import ProfileRouter from './routers/ProfileRouter';
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
@@ -32,7 +32,7 @@ nextApp.prepare().then(() => {
   app.use(bodyParser.json());
   // app.use(LessonRouter);
   // app.use(SubjectRouter);
-  // app.use(TeacherProfileRouter);
+  app.use(ProfileRouter);
 
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {
