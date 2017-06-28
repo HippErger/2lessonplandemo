@@ -3,6 +3,9 @@ import Header from '../components/header';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
+import {
+  loadProfile
+} from '../actions';
 
 class myProfile extends Component {
   PROFILE_ID = this.props.url.query._id;
@@ -33,6 +36,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getProfile: id => {
       console.log('myProfile is loading, 21', id);
+      dispatch(loadProfile(id));
     }
   };
 }
