@@ -61,6 +61,7 @@ export function loadProfileForLesson(id) {
       headers: {'Content-Type': 'application/json'}
     })
     .then(result => {
+      console.log('from  actionsjs, 64', result.json());
       return result.json();
     })
     .then(data => {

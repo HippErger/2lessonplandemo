@@ -22,12 +22,12 @@ function error(state = null, action) {
   return state;
 }
 
-function item(state = {}, action) {
+function item(state = [], action) {
   switch (action.type) {
     case LOAD_PROFILE_LESSON_SUCCESS:
       return action.receivedData;
     case LOAD_PROFILE_LESSON_FAILURE:
-      return {};
+      return [];
   }
   return state;
 }
