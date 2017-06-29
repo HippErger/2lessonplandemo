@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import {initStore} from '../store';
 import withRedux from 'next-redux-wrapper';
@@ -13,38 +13,39 @@ class followingSlider extends Component {
   }
 
   render() {
-    console.log('from followingSlider, 16', this.props.error);
-    // const followedProfiles = this.props.;
-    // const titleStyle = {
-    //   border: '1px solid black',
-    // };
+    const followedProfiles = this.props.items;
+    const titleStyle = {
+      border: '1px solid black',
+    };
+    console.log('from followingSlider, 16', followedProfiles);
 
-// {{pathname: '/fanviewofclass',
-  // query: {_id: this.props.idOfUser}}}
-    // function instanceOfClasses() {
-    //   if (!ALL_CLASSES) {
-    //     return (
-    //       <h6>loading...</h6>
-    //     );
-    //   } return (
-    //     ALL_CLASSES.map((instance, index) => {
-    //       return (
-    //         <Link key={index}
-    //         href='/fanviewofclass'
-    //           lessonplans={instance.lessonplans}>
-    //           <div style={titleStyle} >
-    //             <h6>{instance.title}</h6>
-    //           </div>
-    //         </Link>
-    //       );
-    //     })
-    //   );
-    // }
-    // {instanceOfClasses()}
+      // {{pathname: '/fanviewofclass',
+      // query: {_id: this.props.idOfUser}}}
+    function instanceOfProfiles() {
+      if (!followedProfiles) {
+        return (
+          <h6>loading...</h6>
+        );
+      } return (
+        followedProfiles.map((instance, index) => {
+          return (
+            <Link key={index}
+            href='/fanviewofprofile'
+              lessonplans={instance.lessonplans}>
+              <div style={titleStyle} >
+                <h6>{instance.username}</h6>
+              </div>
+            </Link>
+          );
+        })
+      );
+    }
+    // {instanceOfProfiles()}
 
     return (
       <div>
-        <h6>This is the followingSlider </h6>
+        <h6>Check-out who you&apos;re following:</h6>
+        {instanceOfProfiles()}
       </div>
     );
   }
@@ -52,14 +53,14 @@ class followingSlider extends Component {
 
 followingSlider.propTypes = {
   idOfUser: PropTypes.string.isRequired,
-  // classes: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   getProfiles: PropTypes.func.isRequired,
 
 };
 /* eslint-disable no-unused-vars */
 function mapStateToProps(state) {
   return {
-    items: state.multipleProfilesReducer.item,
+    items: state.multipleProfilesReducer.items,
     loading: state.multipleProfilesReducer.loading,
     error: state.multipleProfilesReducer.error
   };

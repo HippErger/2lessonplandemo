@@ -32,7 +32,6 @@ class myProfile extends Component {
       <h6>Hello, {this.props.item.username}</h6>
       <div>
         <hr />
-        <h6>This where the following slider will go</h6>
         <FollowingSlider selfId={this.REAL_ID}/>
         <hr />
       </div>

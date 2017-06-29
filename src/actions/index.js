@@ -51,6 +51,7 @@ export const LOAD_MULTIPLE_PROFILES = 'LOAD_MULTIPLE_PROFILES';
 export const LOAD_MULTIPLE_PROFILES_SUCCESS = 'LOAD_MULTIPLE_PROFILES_SUCCESS';
 export const LOAD_MULTIPLE_PROFILES_FAILURE = 'LOAD_MULTIPLE_PROFILES_FAILURE';
 
+// cannot put a console.log in .then statement because the result won't be passed on.
 export function loadMultipleProfiles() {
   console.log('getting to actionsjs, 71');
   return dispatch => {
@@ -66,7 +67,7 @@ export function loadMultipleProfiles() {
       return result.json();
     })
     .then(data => {
-      console.log('from actionsjs, 65', data);
+      // console.log('from actionsjs, 70', data);
       dispatch(loadMultipleProfilesSuccess(data));
     })
     .catch(err => {

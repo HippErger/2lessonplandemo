@@ -34,6 +34,7 @@ class classesSlider extends Component {
 
     return (
       <div>
+        <h6>You&apos;re classes</h6>
         {instanceOfClasses()}
       </div>
     );
