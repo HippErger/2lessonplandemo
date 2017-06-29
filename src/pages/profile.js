@@ -33,7 +33,7 @@ class myProfile extends Component {
       <div>
         <hr />
         <h6>This where the following slider will go</h6>
-        <FollowingSlider />
+        <FollowingSlider selfId={this.REAL_ID}/>
         <hr />
       </div>
       <div>

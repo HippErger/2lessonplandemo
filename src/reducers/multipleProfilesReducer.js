@@ -1,16 +1,16 @@
 import {combineReducers} from 'redux';
 import {
-  LOAD_PROFILE_LESSON,
-  LOAD_PROFILE_LESSON_SUCCESS,
-  LOAD_PROFILE_LESSON_FAILURE
+  LOAD_MULTIPLE_PROFILES,
+  LOAD_MULTIPLE_PROFILES_SUCCESS,
+  LOAD_MULTIPLE_PROFILES_FAILURE
 } from '../actions';
 
 function loading(state = false, action) {
   switch (action.type) {
-    case LOAD_PROFILE_LESSON:
+    case LOAD_MULTIPLE_PROFILES:
       return true;
-    case LOAD_PROFILE_LESSON_SUCCESS:
-    case LOAD_PROFILE_LESSON_FAILURE:
+    case LOAD_MULTIPLE_PROFILES_SUCCESS:
+    case LOAD_MULTIPLE_PROFILES_FAILURE:
       return false;
   }
   return state;
@@ -22,20 +22,20 @@ function error(state = null, action) {
   return state;
 }
 
-function item(state = [], action) {
+function items(state = [], action) {
   switch (action.type) {
-    case LOAD_PROFILE_LESSON_SUCCESS:
+    case LOAD_MULTIPLE_PROFILES_SUCCESS:
       return action.receivedData;
-    case LOAD_PROFILE_LESSON_FAILURE:
+    case LOAD_MULTIPLE_PROFILES_FAILURE:
       return [];
   }
   return state;
 }
 
-const profileLessonReducer = combineReducers({
+const multipleProfilesReducer = combineReducers({
   loading,
   error,
-  item
+  items
 });
 
-export default profileLessonReducer;
+export default multipleProfilesReducer;

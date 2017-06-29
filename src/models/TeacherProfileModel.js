@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const teacherProfileModel = mongoose.Schema({
-  _id: String,
   username: {
     type: String,
     maxlength: [ 50, 'Choose a shorter name.' ],

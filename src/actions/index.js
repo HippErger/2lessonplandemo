@@ -7,6 +7,7 @@ export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS';
 export const LOAD_PROFILE_FAILURE = 'LOAD_PROFILE_FAILURE';
 
 export function loadProfile(id) {
+  console.log('from actionsjs, 10', id);
   return dispatch => {
     dispatch({
       type: LOAD_PROFILE,
@@ -46,43 +47,44 @@ function loadProfileFailure(errorMessage) {
                       Load Profile for Lessons
 /////////////////////////////////////////////////////////////////////////// */
 
-export const LOAD_PROFILE_LESSON = 'LOAD_PROFILE_LESSON';
-export const LOAD_PROFILE_LESSON_SUCCESS = 'LOAD_PROFILE_LESSON_SUCCESS';
-export const LOAD_PROFILE_LESSON_FAILURE = 'LOAD_PROFILE_LESSON_FAILURE';
+export const LOAD_MULTIPLE_PROFILES = 'LOAD_MULTIPLE_PROFILES';
+export const LOAD_MULTIPLE_PROFILES_SUCCESS = 'LOAD_MULTIPLE_PROFILES_SUCCESS';
+export const LOAD_MULTIPLE_PROFILES_FAILURE = 'LOAD_MULTIPLE_PROFILES_FAILURE';
 
-export function loadProfileForLesson(id) {
+export function loadMultipleProfiles() {
+  console.log('getting to actionsjs, 71');
   return dispatch => {
     dispatch({
-      type: LOAD_PROFILE_LESSON,
+      type: LOAD_MULTIPLE_PROFILES,
     });
 
-    fetch('/api/teachers/' + id, {
+    fetch('/api/teachers', {
       method: 'GET',
       headers: {'Content-Type': 'application/json'}
     })
     .then(result => {
-      console.log('from  actionsjs, 64', result.json());
       return result.json();
     })
     .then(data => {
-      dispatch(loadProfileForLessonSuccess(data));
+      console.log('from actionsjs, 65', data);
+      dispatch(loadMultipleProfilesSuccess(data));
     })
     .catch(err => {
-      dispatch(loadProfileForLessonFailure(err.message));
+      dispatch(loadMultipleProfilesFailure(err.message));
     });
   };
 }
 
-function loadProfileForLessonSuccess(receivedData) {
+function loadMultipleProfilesSuccess(receivedData) {
   return {
-    type: LOAD_PROFILE_LESSON_SUCCESS,
+    type: LOAD_MULTIPLE_PROFILES_SUCCESS,
     receivedData
   };
 }
 
-function loadProfileForLessonFailure(errorMessage) {
+function loadMultipleProfilesFailure(errorMessage) {
   return {
-    type: LOAD_PROFILE_LESSON_FAILURE,
+    type: LOAD_MULTIPLE_PROFILES_FAILURE,
     errorMessage
   };
 }

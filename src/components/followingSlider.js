@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {initStore} from '../store';
 import withRedux from 'next-redux-wrapper';
+import {
+  loadMultipleProfiles
+} from '../actions';
 
 class followingSlider extends Component {
   componentDidMount() {
@@ -10,6 +13,7 @@ class followingSlider extends Component {
   }
 
   render() {
+    console.log('from followingSlider, 16', this.props.error);
     // const followedProfiles = this.props.;
     // const titleStyle = {
     //   border: '1px solid black',
@@ -48,30 +52,29 @@ class followingSlider extends Component {
 
 followingSlider.propTypes = {
   idOfUser: PropTypes.string.isRequired,
-  classes: PropTypes.array.isRequired,
+  // classes: PropTypes.array.isRequired,
   getProfiles: PropTypes.func.isRequired,
 
 };
-//
-// function mapStateToProps(state) {
-//   return {
-//     item: state.profileReducer.item,
-//   };
-// }
-
 /* eslint-disable no-unused-vars */
+function mapStateToProps(state) {
+  return {
+    items: state.multipleProfilesReducer.item,
+    loading: state.multipleProfilesReducer.loading,
+    error: state.multipleProfilesReducer.error
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     getProfiles: () => {
-      console.log('mapDispatch in followingSlider, 63, is working');
-      // dispatch(loadProfileForLesson(id));
+      dispatch(loadMultipleProfiles());
     }
   };
 
 }
 
-// export default followingSlider;
-export default withRedux(initStore, null, mapDispatchToProps)(followingSlider);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(followingSlider);
 
 
 

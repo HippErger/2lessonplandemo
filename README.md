@@ -39,3 +39,5 @@ Run the dev server via `yarn start`
 ## Learning Bug Fixes
 // if you get this error: this.props.getProfile is not a function - its because
 // mapDispatchToProps is not being passed to withRedux
+
+// // cannot put a console.log in .then statement because the result won't be passed on.
