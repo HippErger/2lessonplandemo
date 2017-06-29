@@ -4,15 +4,19 @@ import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
 import ClassesSlider from '../components/classesSlider';
+import FollowingSlider from '../components/followingSlider';
 import {
   loadProfile
 } from '../actions';
 
 class myProfile extends Component {
   PROFILE_ID = this.props.url.query._id;
+  // when clicking on the sign-in button it may not be passing the query and
+  // cannot load the profile of the user.
+  REAL_ID = '59526f7b403e1551a0c6f73c';
   componentDidMount() {
     console.log('from myProfilejs, 14', this.props.item);
-    this.props.getProfile(this.PROFILE_ID);
+    this.props.getProfile(this.REAL_ID);
   }
 
   render() {
@@ -29,6 +33,7 @@ class myProfile extends Component {
       <div>
         <hr />
         <h6>This where the following slider will go</h6>
+        <FollowingSlider />
         <hr />
       </div>
       <div>
