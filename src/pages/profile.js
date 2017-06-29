@@ -20,27 +20,21 @@ class myProfile extends Component {
   }
 
   render() {
-
-    // const thickStyle = {
-    //   border: '2px solid black',
-    // };
-    // const thisUser = this.props.item;
-
     return (
       <div>
-      <Header />
-      <h6>Hello, {this.props.item.username}</h6>
-      <div>
-        <hr />
-        <FollowingSlider selfId={this.REAL_ID}/>
-        <hr />
-      </div>
-      <div>
-        <ClassesSlider
-          user= {this.props.item}
-          idOfUser= {this.PROFILE_ID}
-          classes= {this.props.item.subjects} />
-      </div>
+        <Header />
+        <h3>Hello, {this.props.item.username}</h3>
+        <div>
+          <hr />
+          <FollowingSlider selfId={this.REAL_ID}/>
+          <hr />
+        </div>
+        <div>
+          <ClassesSlider
+            user= {this.props.item}
+            idOfUser= {this.PROFILE_ID}
+            classes= {this.props.item.subjects} />
+        </div>
       </div>
     );
   }
@@ -68,7 +62,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-// export default myProfile;
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(myProfile);
 
 // if you get this error: this.props.getProfile is not a function - its because

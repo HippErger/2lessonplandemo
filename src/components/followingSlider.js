@@ -38,8 +38,21 @@ class followingSlider extends Component {
             <Link key={index}
             href='/fanviewofprofile'
               lessonplans={instance.lessonplans}>
-              <div style={titleStyle} >
+              <div style={titleStyle} className='followinTile'>
                 <h6>{instance.username}</h6>
+                <style jsx>{`
+                 .followinTile {
+                   font: 15px Helvetica, Arial, sans-serif;
+                   background: #eee;
+                   padding: 100px;
+                   text-align: center;
+                   transition: 100ms ease-in background;
+                   width: 9%;
+                 }
+                 .followinTile:hover {
+                   background: #ccc;
+                 }`}
+                </style>
               </div>
             </Link>
           );
@@ -47,11 +60,18 @@ class followingSlider extends Component {
       );
     }
     // {instanceOfProfiles()}
+ const flexStyle = {
+      'display': 'flex',
+      'flex-direction': 'row',
+      'justify-content': 'space-around'
+    };
 
     return (
       <div>
         <h6>Check-out who you&apos;re following:</h6>
-        {instanceOfProfiles()}
+        <div style={flexStyle} >
+          {instanceOfProfiles()}
+        </div>
       </div>
     );
   }

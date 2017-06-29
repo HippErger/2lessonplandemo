@@ -9,6 +9,8 @@ class classesSlider extends Component {
     const titleStyle = {
       border: '1px solid black',
     };
+    const flexStyle = { 'display': 'flex', 'flex-direction': 'row', 'justify-content': 'space-around'};
+
 
 // {{pathname: '/fanviewofclass',
   // query: {_id: this.props.idOfUser}}}
@@ -23,8 +25,21 @@ class classesSlider extends Component {
             <Link key={index}
             href='/myclass'
               lessonplans={instance.lessonplans}>
-              <div style={titleStyle} >
+              <div style={titleStyle} className='classTile'>
                 <h6>{instance.title}</h6>
+                  <style jsx>{`
+                   .classTile {
+                     font: 15px Helvetica, Arial, sans-serif;
+                     background: #eee;
+                     padding: 100px;
+                     text-align: center;
+                     transition: 100ms ease-in background;
+                     width: 9%;
+                   }
+                   .classTile:hover {
+                     background: #ccc;
+                   }`}
+                  </style>
               </div>
             </Link>
           );
@@ -35,7 +50,9 @@ class classesSlider extends Component {
     return (
       <div>
         <h6>You&apos;re classes</h6>
-        {instanceOfClasses()}
+        <div style={flexStyle}>
+          {instanceOfClasses()}
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@ function IndexPage() {
   return (
     <div>
       <h1>
-        Hello World
+        Sign In!
       </h1>
       <Link href="/about">
         <a>About</a>
