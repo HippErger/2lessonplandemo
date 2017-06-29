@@ -1,17 +1,19 @@
-# Starter repository for fullstack application using next.js
+import React, {Component} from 'react';
+// import Link from 'next/link';
 
-This is a starter repository created for Austin Coding Academy to quickly
-start a fullstack application using next.js
+class classesSlider extends Component {
+  render() {
+    return (
+      <div>
+        <h6>This is where the classesSlider will go</h6>
+      </div>
+    );
+  }
+}
 
-## Installation
+export default classesSlider;
 
-Install all dependencies running `yarn`
 
-## Usage
-
-Run the dev server via `yarn start`
-
-## common typing
 // import {initStore} from '../store';
 // import withRedux from 'next-redux-wrapper';
 // import PropTypes from 'prop-types';
@@ -35,7 +37,3 @@ Run the dev server via `yarn start`
 // };
 //
 // export default withRedux(initStore, null, null)(someComponent);
-
-## Learning Bug Fixes
-// if you get this error: this.props.getProfile is not a function - its because
-// mapDispatchToProps is not being passed to withRedux

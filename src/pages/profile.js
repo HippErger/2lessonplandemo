@@ -3,6 +3,7 @@ import Header from '../components/header';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
+import ClassesSlider from '../components/classesSlider';
 import {
   loadProfile
 } from '../actions';
@@ -19,6 +20,16 @@ class myProfile extends Component {
       <div>
       <Header />
       <h6>This is my profile page</h6>
+      <div>
+        <hr />
+        <h6>This where the following slider will go</h6>
+        <hr />
+      </div>
+      <div>
+        <hr />
+        <ClassesSlider />
+        <hr />
+      </div>
       </div>
     );
   }
