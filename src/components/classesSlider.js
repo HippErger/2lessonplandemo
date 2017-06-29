@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 // import Link from 'next/link';
 
 class classesSlider extends Component {
+
+  componentDidMount() {
+    // am getting the user's id but it would be better to pass just the clases to this component
+    console.log('from classesSlider, 7', this.props);
+  }
+
   render() {
     return (
       <div>

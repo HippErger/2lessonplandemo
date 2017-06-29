@@ -11,7 +11,7 @@ import {
 class myProfile extends Component {
   PROFILE_ID = this.props.url.query._id;
   componentDidMount() {
-    console.log('from myProfilejs, 10', this.PROFILE_ID);
+    console.log('from myProfilejs, 10', this.props.item);
     this.props.getProfile(this.PROFILE_ID);
   }
 
@@ -27,7 +27,7 @@ class myProfile extends Component {
       </div>
       <div>
         <hr />
-        <ClassesSlider />
+        <ClassesSlider idOfUser= {this.PROFILE_ID} classes= {this.props.item.subjects} />
         <hr />
       </div>
       </div>
@@ -38,11 +38,16 @@ class myProfile extends Component {
 myProfile.propTypes = {
   getProfile: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 
 };
 
+function mapStateToProps(state) {
+  return {
+    item: state.profileReducer.item,
+  };
+}
 
-/* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
   return {
     getProfile: id => {
@@ -53,7 +58,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // export default myProfile;
-export default withRedux(initStore, null, mapDispatchToProps)(myProfile);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(myProfile);
 
 // if you get this error: this.props.getProfile is not a function - its because
 // mapDispatchToProps is not being passed to withRedux
