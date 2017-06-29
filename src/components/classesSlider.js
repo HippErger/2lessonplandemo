@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-// import Link from 'next/link';
-// import {initStore} from '../store';
-// import withRedux from 'next-redux-wrapper';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-// import {
-//   loadProfileForLesson
-// } from '../actions';
 
 class classesSlider extends Component {
 
@@ -24,9 +19,11 @@ class classesSlider extends Component {
         ALL_CLASSES.map((instance, index) => {
           console.log('from classesSliderjs, 24', instance.title);
           return (
-            <div style={titleStyle} key={index} lessonplans={instance.lessonplans}>
-              <h6>{instance.title}</h6>
-            </div>
+            <Link key={index} href='/fanviewofclass' lessonplans={instance.lessonplans}>
+              <div style={titleStyle} lessonplans={instance.lessonplans}>
+                <h6>{instance.title}</h6>
+              </div>
+            </Link>
           );
         })
       );
@@ -34,7 +31,6 @@ class classesSlider extends Component {
 
     return (
       <div>
-        <h6>This is the classes slider</h6>
         {instanceOfClasses()}
       </div>
     );
