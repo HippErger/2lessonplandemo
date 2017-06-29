@@ -13,11 +13,17 @@ class followingSlider extends Component {
   }
 
   render() {
-    const followedProfiles = this.props.items;
+    // brings all items in then filters out profiles by the id, need to
+    // bring this id into the component to use it dynamically.
+    const allProfiles = this.props.items;
+    const followedProfiles = allProfiles.filter( followed => {
+      return followed._id !== '59526f7b403e1551a0c6f73c';
+    });
     const titleStyle = {
       border: '1px solid black',
     };
-    console.log('from followingSlider, 16', followedProfiles);
+
+    console.log('from followingSlider, 23', followedProfiles);
 
       // {{pathname: '/fanviewofclass',
       // query: {_id: this.props.idOfUser}}}

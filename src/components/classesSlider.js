@@ -21,7 +21,7 @@ class classesSlider extends Component {
         ALL_CLASSES.map((instance, index) => {
           return (
             <Link key={index}
-            href='/fanviewofclass'
+            href='/myclass'
               lessonplans={instance.lessonplans}>
               <div style={titleStyle} >
                 <h6>{instance.title}</h6>
