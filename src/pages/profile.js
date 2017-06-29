@@ -20,7 +20,7 @@ class myProfile extends Component {
     // const thickStyle = {
     //   border: '2px solid black',
     // };
-    const thisUser = this.props.item;
+    // const thisUser = this.props.item;
 
     return (
       <div>
@@ -35,7 +35,7 @@ class myProfile extends Component {
         <ClassesSlider
           user= {this.props.item}
           idOfUser= {this.PROFILE_ID}
-          classes= {thisUser.subjects} />
+          classes= {this.props.item.subjects} />
       </div>
       </div>
     );

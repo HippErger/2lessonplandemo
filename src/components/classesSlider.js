@@ -10,6 +10,8 @@ class classesSlider extends Component {
       border: '1px solid black',
     };
 
+// {{pathname: '/fanviewofclass',
+  // query: {_id: this.props.idOfUser}}}
     function instanceOfClasses() {
       if (!ALL_CLASSES) {
         return (
@@ -17,10 +19,11 @@ class classesSlider extends Component {
         );
       } return (
         ALL_CLASSES.map((instance, index) => {
-          console.log('from classesSliderjs, 24', instance.title);
           return (
-            <Link key={index} href='/fanviewofclass' lessonplans={instance.lessonplans}>
-              <div style={titleStyle} lessonplans={instance.lessonplans}>
+            <Link key={index}
+            href='/fanviewofclass'
+              lessonplans={instance.lessonplans}>
+              <div style={titleStyle} >
                 <h6>{instance.title}</h6>
               </div>
             </Link>
@@ -39,9 +42,6 @@ class classesSlider extends Component {
 
 classesSlider.propTypes = {
   idOfUser: PropTypes.string.isRequired,
-  item: PropTypes.object.isRequired,
-  getClasses: PropTypes.func.isRequired,
-  props: PropTypes.array.isRequired,
   classes: PropTypes.array.isRequired,
 
 };

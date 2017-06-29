@@ -33,6 +33,7 @@ const ProfileController = {
         return response.json(data);
       })
       .catch(err => {
+        console.log('error ProfileControllerjs, 36', err.message);
         return next(err);
       });
   },
