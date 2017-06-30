@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import Link from 'next/link';
 import {StyleSheet, css} from 'aphrodite';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    console.log('from header component. 7', this.props.userImage);
     const styles = StyleSheet.create({
       // #362B68 Purple
       buttonContainer: {
@@ -38,15 +43,15 @@ class Header extends Component {
         fontSize: '16',
       }
     });
-
+    //  '../static/images/flaviusheadshot.png'
     return (
         <div className={css(styles.buttonContainer)}>
           <Link href="/profile">
             <img className={css(styles.avatarCircle)}
-              src={'../static/images/flaviusheadshot.png'}/>
+              src={this.props.userImage}/>
           </Link>
           &nbsp; &nbsp;
-          <Link href={{pathname: '/mylessons', query: {_id: 'aaa'}}}>
+          <Link href={{pathname: '/mylessonview', query: {_id: 'aaa'}}}>
             <button className={css(styles.button)}>My Lessons</button>
           </Link>
           &nbsp; &nbsp;
@@ -61,5 +66,9 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  userImage: PropTypes.string.isRequired,
+};
 
 export default Header;

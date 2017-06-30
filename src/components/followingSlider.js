@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import {initStore} from '../store';
 import withRedux from 'next-redux-wrapper';
+import {StyleSheet, css} from 'aphrodite';
 import {
   loadMultipleProfiles
 } from '../actions';
@@ -16,18 +17,28 @@ class followingSlider extends Component {
     // brings all items in then filters out profiles by the id, need to
     // bring this id into the component to use it dynamically.
     const allProfiles = this.props.items;
+
     const followedProfiles = allProfiles.filter( followed => {
-      return followed._id !== '59526f7b403e1551a0c6f73c';
+      return followed._id !== this.props.selfId;
     });
     const titleStyle = {
       border: '1px solid black',
     };
 
-    console.log('from followingSlider, 23', followedProfiles);
-
       // {{pathname: '/fanviewofclass',
       // query: {_id: this.props.idOfUser}}}
     function instanceOfProfiles() {
+      const followStyles = StyleSheet.create({
+        avatarCircle: {
+          borderRadius: 50,
+          height: 95,
+          width: 95,
+          marginTop: 10,
+          marginBottom: 'auto',
+          marginLeft: 5,
+          display: 'inline-block',
+        },
+      });
       if (!followedProfiles) {
         return (
           <h6>loading...</h6>
@@ -39,10 +50,11 @@ class followingSlider extends Component {
             href='/fanviewofprofile'
               lessonplans={instance.lessonplans}>
               <div style={titleStyle} className='followinTile'>
+                <img className={css(followStyles.avatarCircle)} src={instance.avatar}/>
                 <h3>{instance.username}</h3>
-                <h6>years:{instance.years}</h6>
-                <h6>number of followers:{instance.followers}</h6>
-                <h6>following:{instance.following}</h6>
+                <h6>years teaching: {instance.years}</h6>
+                <h6>number of followers: {instance.followers}</h6>
+                <h6>following: {instance.following}</h6>
                 <ul>
                   <b>Subjects</b>
                   <li>{instance.subjects[0].title}</li>
@@ -52,7 +64,7 @@ class followingSlider extends Component {
                  .followinTile {
                    font: 15px Helvetica, Arial, sans-serif;
                    background: #eee;
-                   padding: 100px;
+                   padding: 60px;
                    text-align: center;
                    transition: 100ms ease-in background;
                    width: 9%;
@@ -76,7 +88,7 @@ class followingSlider extends Component {
 
     return (
       <div>
-        <h6>Check-out who you&apos;re following:</h6>
+        <h4>Check-out who you&apos;re following:</h4>
         <div style={flexStyle} >
           {instanceOfProfiles()}
         </div>
@@ -89,6 +101,7 @@ followingSlider.propTypes = {
   idOfUser: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   getProfiles: PropTypes.func.isRequired,
+  selfId: PropTypes.string.isRequired,
 
 };
 /* eslint-disable no-unused-vars */

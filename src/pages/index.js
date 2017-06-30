@@ -3,12 +3,12 @@ import Link from 'next/link';
 import {StyleSheet, css} from 'aphrodite';
 
 
-// if (typeof window !== 'undefined') {
-//   /* StyleSheet.rehydrate takes an array of rendered classnames,
-//   and ensures that the client side render doesn't generate
-//   duplicate style definitions in the <style data-aphrodite> tag */
-//   StyleSheet.rehydrate(window.__NEXT_DATA__.ids);
-// }
+if (typeof window !== 'undefined') {
+  /* StyleSheet.rehydrate takes an array of rendered classnames,
+  and ensures that the client side render doesn't generate
+  duplicate style definitions in the <style data-aphrodite> tag */
+  StyleSheet.rehydrate(window.__NEXT_DATA__.ids);
+}
 
 function IndexPage() {
 
@@ -46,7 +46,10 @@ function IndexPage() {
       }
     }
   });
-
+  // YonderWay 59526edd403e1551a0c6f70f
+  // Flavius 59526f7b403e1551a0c6f73c
+  // HippErger 59526e09403e1551a0c6f6cf
+  // FlyingBacon 59526cc6403e1551a0c6f681
   return (
     <div className={css(indexStyles.tabPane)}>
       <Link href="/about">
@@ -55,7 +58,7 @@ function IndexPage() {
         </h1>
       </Link>
       &nbsp; &nbsp;
-      <Link href={{pathname: '/profile', query: {_id: '59526f7b403e1551a0c6f73c'} }}>
+      <Link href={{pathname: '/profile', query: {_id: '59526cc6403e1551a0c6f681'} }}>
         <a className={css(indexStyles.linkFont)}>Sign-In</a>
       </Link>
     </div>

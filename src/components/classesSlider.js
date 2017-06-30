@@ -48,7 +48,7 @@ class classesSlider extends Component {
                    .classTile {
                      font: 15px Helvetica, Arial, sans-serif;
                      background: #eee;
-                     padding: 100px;
+                     padding: 65px;
                      text-align: center;
                      transition: 100ms ease-in background;
                      width: 9%;
@@ -69,7 +69,7 @@ class classesSlider extends Component {
 
     return (
       <div>
-        <h6>Your classes</h6>
+        <h4>Your classes</h4>
         <div style={flexStyle}>
           {instanceOfClasses()}
         </div>

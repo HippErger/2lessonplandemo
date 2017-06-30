@@ -18,7 +18,8 @@ class myProfile extends Component {
   REAL_ID = '59526f7b403e1551a0c6f73c';
   componentDidMount() {
     console.log('from myProfilejs, 14', this.props.item);
-    this.props.getProfile(this.REAL_ID);
+    console.log('from myProfilejs, 21', this.PROFILE_ID);
+    this.props.getProfile(this.PROFILE_ID);
   }
 
   render() {
@@ -42,11 +43,11 @@ class myProfile extends Component {
 
     return (
       <div>
-        <Header />
+        <Header userImage={this.props.item.avatar} />
         <h3 >Hello, {this.props.item.username}</h3>
         <div>
           <hr />
-          <FollowingSlider selfId={this.REAL_ID}/>
+          <FollowingSlider selfId={this.PROFILE_ID}/>
           <hr />
         </div>
         <div>
@@ -76,7 +77,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getProfile: id => {
-      console.log('myProfile is loading, 21', id);
+      console.log('myProfile is loading, 80', id);
       dispatch(loadProfile(id));
     }
   };
