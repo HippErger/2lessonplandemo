@@ -39,7 +39,15 @@ class followingSlider extends Component {
             href='/fanviewofprofile'
               lessonplans={instance.lessonplans}>
               <div style={titleStyle} className='followinTile'>
-                <h6>{instance.username}</h6>
+                <h3>{instance.username}</h3>
+                <h6>years:{instance.years}</h6>
+                <h6>number of followers:{instance.followers}</h6>
+                <h6>following:{instance.following}</h6>
+                <ul>
+                  <b>Subjects</b>
+                  <li>{instance.subjects[0].title}</li>
+                  <li>{instance.subjects[1].title}</li>
+                </ul>
                 <style jsx>{`
                  .followinTile {
                    font: 15px Helvetica, Arial, sans-serif;
@@ -60,7 +68,7 @@ class followingSlider extends Component {
       );
     }
     // {instanceOfProfiles()}
- const flexStyle = {
+    const flexStyle = {
       'display': 'flex',
       'flex-direction': 'row',
       'justify-content': 'space-around'

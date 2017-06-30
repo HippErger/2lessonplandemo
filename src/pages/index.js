@@ -2,10 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import {StyleSheet, css} from 'aphrodite';
 
+
+// if (typeof window !== 'undefined') {
+//   /* StyleSheet.rehydrate takes an array of rendered classnames,
+//   and ensures that the client side render doesn't generate
+//   duplicate style definitions in the <style data-aphrodite> tag */
+//   StyleSheet.rehydrate(window.__NEXT_DATA__.ids);
+// }
+
 function IndexPage() {
 
   const indexStyles = StyleSheet.create({
-    root: {
+    tabPane: {
       width: 150,
       height: 200,
       margin: 'auto',
@@ -40,7 +48,7 @@ function IndexPage() {
   });
 
   return (
-    <div className={css(indexStyles.root)}>
+    <div className={css(indexStyles.tabPane)}>
       <Link href="/about">
         <h1 className={css(indexStyles.title)}>
           Schmek!

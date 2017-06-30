@@ -11,7 +11,24 @@ class classesSlider extends Component {
     };
     const flexStyle = { 'display': 'flex', 'flex-direction': 'row', 'justify-content': 'space-around'};
 
-
+    // function lessonList() {
+    //   if(!ALL_CLASSES.)
+    // }
+    function mapOverLessons(arr) {
+      if (!arr) {
+        return (
+          <li>loading...</li>
+        );
+      } return (
+        arr.map((item, index) => {
+          return (
+            <Link key={index} href='/lessonview'>
+              <li>{item.title}</li>
+            </Link>
+          );
+        })
+      );
+    }
 // {{pathname: '/fanviewofclass',
   // query: {_id: this.props.idOfUser}}}
     function instanceOfClasses() {
@@ -40,6 +57,9 @@ class classesSlider extends Component {
                      background: #ccc;
                    }`}
                   </style>
+                  <ul>
+                    {mapOverLessons(instance.lessonplans)}
+                  </ul>
               </div>
             </Link>
           );
@@ -49,7 +69,7 @@ class classesSlider extends Component {
 
     return (
       <div>
-        <h6>You&apos;re classes</h6>
+        <h6>Your classes</h6>
         <div style={flexStyle}>
           {instanceOfClasses()}
         </div>

@@ -5,9 +5,11 @@ import {initStore} from '../store';
 import PropTypes from 'prop-types';
 import ClassesSlider from '../components/classesSlider';
 import FollowingSlider from '../components/followingSlider';
+// import {StyleSheet, css} from 'aphrodite';
 import {
   loadProfile
 } from '../actions';
+
 
 class myProfile extends Component {
   PROFILE_ID = this.props.url.query._id;
@@ -20,10 +22,28 @@ class myProfile extends Component {
   }
 
   render() {
+
+    // const profileStyles = StyleSheet.create({
+    //   shake: {
+    //     animationName: {
+    //       '25%': {
+    //         transform: 'scale(1.05) rotate(4deg)'
+    //       },
+    //       '50%': {
+    //         transform: 'scale(1.05) rotate(4deg)'
+    //       }
+    //     },
+    //     animationDuration: '1s',
+    //     animationIterationCount: '10s'
+    //   }
+    // });
+    // className={css(profileStyles.shake)}
+
+
     return (
       <div>
         <Header />
-        <h3>Hello, {this.props.item.username}</h3>
+        <h3 >Hello, {this.props.item.username}</h3>
         <div>
           <hr />
           <FollowingSlider selfId={this.REAL_ID}/>

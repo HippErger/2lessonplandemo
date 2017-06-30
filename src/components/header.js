@@ -5,23 +5,6 @@ import {StyleSheet, css} from 'aphrodite';
 class Header extends Component {
   render() {
     const styles = StyleSheet.create({
-      root: {
-        width: 80,
-        height: 60,
-        background: 'white',
-        ':hover': {
-          background: 'black'
-        }
-      },
-
-      title: {
-        marginLeft: 5,
-        color: 'black',
-        fontSize: 22,
-        ':hover': {
-          color: 'white'
-        }
-      },
       // #362B68 Purple
       buttonContainer: {
         background: '#7EBFC1',
