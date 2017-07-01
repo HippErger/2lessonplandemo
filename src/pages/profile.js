@@ -19,7 +19,8 @@ class myProfile extends Component {
   componentDidMount() {
     console.log('from myProfilejs, 14', this.props.item);
     console.log('from myProfilejs, 21', this.PROFILE_ID);
-    this.props.getProfile(this.PROFILE_ID);
+    // might want to change this so its not duplicating followers
+    this.props.getProfile(this.PROFILE_ID || this.REAL_ID);
   }
 
   render() {
@@ -47,13 +48,13 @@ class myProfile extends Component {
         <h3 >Hello, {this.props.item.username}</h3>
         <div>
           <hr />
-          <FollowingSlider selfId={this.PROFILE_ID}/>
+          <FollowingSlider selfId={this.PROFILE_ID || this.REAL_ID}/>
           <hr />
         </div>
         <div>
           <ClassesSlider
             user= {this.props.item}
-            idOfUser= {this.PROFILE_ID}
+            idOfUser= {this.PROFILE_ID || this.REAL_ID}
             classes= {this.props.item.subjects} />
         </div>
       </div>

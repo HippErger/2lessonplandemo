@@ -34,9 +34,16 @@ class LessonForm extends Component {
       assessment: ''
     };
 
+    // const emptyState = {
+    //   message: {
+    //     message: '',
+    //   }
+    // };
+
     event.preventDefault();
     this.props.onSubmit(this.state);
     this.setState({...CLEAR_FORM_STATE});
+    // this.setState(emptyState);
   };
 
   handleInputChange = event => {
