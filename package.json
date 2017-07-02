@@ -15,6 +15,7 @@
     "aphrodite": "^1.2.1",
     "aphrodite-simple": "^0.4.1",
     "body-parser": "^1.17.2",
+    "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.11.0",
@@ -28,6 +29,7 @@
     "redux": "^3.7.1",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
+    "style-loader": "^0.18.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -41,6 +43,11 @@
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint-plugin-react": "^7.0.1",
+    "babel-plugin-css-modules-transform": "^1.2.1",
+    "node-sass": "^4.5.0",
+    "postcss": "^5.2.16",
+    "postcss-cssnext": "^2.10.0"
+
   }
 }

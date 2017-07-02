@@ -1,4 +1,4 @@
-.indexStyles_tabPane {
+.index_tabPane {
   width: 150px;
   height: 200px;
   margin: auto;
@@ -8,27 +8,27 @@
   padding-top: 40%;
 }
 
-.indexStyles-tabPane:hover {
+.index_TabPane:hover {
   background: #4CAF50;
   border: 1px solid black;
 }
 
-.indexStyles_title {
+.index_Title {
   margin: auto;
   padding-top: 20%;
   color: black;
   font-size: 32px;
 }
 
-.indexStyles-title:hover {
+.index_Title:hover {
   color: white;
 }
 
-.indexStyles_linkFont {
+.index_LinkFont {
     margin: auto 12% auto auto;
   }
 
 
-.indexStyles-linkFont:hover {
+.indexStyles_LinkFont:hover {
   color: white;
 }

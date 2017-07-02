@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 // import {StyleSheet, css} from 'aphrodite';
-import '../static/stylesheets/indexstyles.css';
+import Document, { Head, Main, NextScript } from 'next/document'
+import style from '../static/stylesheets/indexstyles.css';
 
 if (typeof window !== 'undefined') {
   /* StyleSheet.rehydrate takes an array of rendered classnames,
@@ -51,17 +52,25 @@ function IndexPage() {
   // HippErger 59526e09403e1551a0c6f6cf
   // FlyingBacon 59526cc6403e1551a0c6f681
   return (
-    <div className="indexStyles_tabPane">
-      <Link href="/about">
-        <h1 className="indexStyles_title">
-          Schmek!
-        </h1>
-      </Link>
-      &nbsp; &nbsp;
-      <Link href={{pathname: '/profile', query: {_id: '59526cc6403e1551a0c6f681'} }}>
-        <a className="indexStyles_linkFont">Sign-In</a>
-      </Link>
-    </div>
+    <html>
+      <Head>
+         <link rel='stylesheet' href='/static/css/indexstyles.css' />
+      </Head>
+      <body>
+        <div className='index_tabPane'>
+          <Link href='/about'>
+            <h1 className='index_Title'>
+              Schmek!
+            </h1>
+          </Link>
+          &nbsp; &nbsp;
+          <Link href={{pathname: '/profile', query: {_id: '59526cc6403e1551a0c6f681'} }}>
+            <a className='index_LinkFont'>Sign-In</a>
+          </Link>
+        </div>
+      </body>
+    </html>
+
   );
 }
 
